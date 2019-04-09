@@ -4,7 +4,13 @@
 ![swift-5.0](https://img.shields.io/badge/swift-5.0-orange.svg)
 
 Aparecium is the new concept secret notepad based on image detection of ARKit.  
-It was developed for [NAVER CAMPUS HACKDAY 2018 WINTER](https://github.com/NAVER-CAMPUS-HACKDAY-2018w/common).
+It can save notes, photo or video in image.  
+If you save the content in image, you can see it through image detection.
+
+This awesome AR app was developed for [NAVER CAMPUS HACKDAY 2018 WINTER](https://github.com/NAVER-CAMPUS-HACKDAY-2018w/common).
+
+## Preview
+![Preview.gif](Resource/Preview.gif)
 
 ## License
 Copyright 2019 HyungJung Kim
