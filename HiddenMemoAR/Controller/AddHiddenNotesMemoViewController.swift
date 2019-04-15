@@ -21,7 +21,7 @@ class AddHiddenNotesMemoViewController: UIViewController {
         view.addGestureRecognizer(tapGestureForView)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToViewController" {
             if let notes = notesTextView.text {
                 let newHiddenMemo = HiddenMemo(title: self.titleForRegister, keyImage: self.keyImageForRegister, content: Content.Notes(notes))

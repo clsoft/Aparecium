@@ -45,7 +45,13 @@ class RegisteredKeyDetailsViewController: UIViewController {
     // MARK: - private
     
     private lazy var playerViewController: AVPlayerViewController = {
-        return self.children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
+        let playerViewControllerChildren = children.lazy.compactMap { $0 as? AVPlayerViewController }
+        
+        guard let playerViewController = playerViewControllerChildren.first else {
+            return AVPlayerViewController()
+        }
+        
+        return playerViewController
     }()
     
     private func setup() {

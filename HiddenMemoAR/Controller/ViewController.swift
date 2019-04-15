@@ -91,7 +91,13 @@ class ViewController: UIViewController {
     private var isRestartAvailable = true
     
     private lazy var memoViewController: MemoViewController = {
-        return children.lazy.compactMap { $0 as? MemoViewController }.first!
+        let memoViewControllerChildren = children.lazy.compactMap { $0 as? MemoViewController }
+        
+        guard let memoViewController = memoViewControllerChildren.first else {
+            return MemoViewController()
+        }
+        
+        return memoViewController
     }()
     
     private func resetTracking() {

@@ -15,7 +15,7 @@ class AddHiddenVideoMemoViewController: UIViewController {
     
     // MARK: - override
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToViewController" {
             if let player = playerViewController.player {
                 player.pause()
@@ -42,7 +42,13 @@ class AddHiddenVideoMemoViewController: UIViewController {
     
     private var videoURLForRegister: URL!
     private lazy var playerViewController: AVPlayerViewController = {
-        return children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
+        let playerViewControllers = children.lazy.compactMap { $0 as? AVPlayerViewController }
+        
+        guard let playerViewController = playerViewControllers.first else {
+            return AVPlayerViewController()
+        }
+        
+        return playerViewController
     }()
     
 }
@@ -51,28 +57,26 @@ class AddHiddenVideoMemoViewController: UIViewController {
 extension AddHiddenVideoMemoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! NSString
-        
-        if mediaType.isEqual(to: kUTTypeMovie as String) {
-            if let tempVideoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-                let videoData = try? Data(contentsOf: tempVideoURL)
-                let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-                let documentsDirectory = URL(fileURLWithPath: paths[0])
-                let timeStamp = String(Int(Date.timeIntervalSinceReferenceDate))
-                
-                self.videoURLForRegister = documentsDirectory.appendingPathComponent(timeStamp + ".MOV")
-                
-                do {
-                    try videoData?.write(to: self.videoURLForRegister, options: [])
-                } catch {
-                    print(error)
-                }
-                
-                self.playerViewController.player = AVPlayer(url: videoURLForRegister)
-                
-                if let player = self.playerViewController.player {
-                    player.play()
-                }
+        if let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? NSString,
+            mediaType.isEqual(to: kUTTypeMovie as String),
+            let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+            let videoData = try? Data(contentsOf: videoURL)
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let documentsDirectory = URL(fileURLWithPath: paths[0])
+            let timeStamp = String(Int(Date.timeIntervalSinceReferenceDate))
+            
+            self.videoURLForRegister = documentsDirectory.appendingPathComponent(timeStamp + ".MOV")
+            
+            do {
+                try videoData?.write(to: self.videoURLForRegister, options: [])
+            } catch {
+                print(error)
+            }
+            
+            self.playerViewController.player = AVPlayer(url: videoURLForRegister)
+            
+            if let player = self.playerViewController.player {
+                player.play()
             }
         }
         

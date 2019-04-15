@@ -72,7 +72,13 @@ class MemoViewController: UIViewController {
     private var hideTimer: Timer?
     
     private lazy var playerViewController: AVPlayerViewController = {
-        return children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
+        let playerViewControllerChildren = children.lazy.compactMap { $0 as? AVPlayerViewController }
+        
+        guard let playerViewController = playerViewControllerChildren.first else {
+            return AVPlayerViewController()
+        }
+        
+        return playerViewController
     }()
     
     private func setIsHidden(_ isHidden: Bool, animated: Bool) {

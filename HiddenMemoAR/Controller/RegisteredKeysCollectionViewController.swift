@@ -54,7 +54,7 @@ class RegisteredKeysCollectionViewController: UICollectionViewController {
         performSegue(withIdentifier: "segueToRegisteredKeyDetailsViewController", sender: indexPath.row)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRegisteredKeyDetailsViewController" {
             if let registeredKeyDetailsViewController = segue.destination as? RegisteredKeyDetailsViewController {
                 registeredKeyDetailsViewController.registeredKeysCollectionViewControllerDelegate = self
@@ -115,12 +115,10 @@ extension RegisteredKeysCollectionViewController: UICollectionViewDelegateFlowLa
 extension RegisteredKeysCollectionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! NSString
-        
-        if mediaType.isEqual(to: kUTTypeImage as String) {
-            if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-                self.keyImageForRegister = image
-            }
+        if let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? NSString,
+            mediaType.isEqual(to: kUTTypeImage as String),
+            let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.keyImageForRegister = image
         }
         
         self.dismiss(animated: true, completion: nil)

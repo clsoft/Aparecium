@@ -14,7 +14,7 @@ class AddHiddenImageMemoViewController: UIViewController {
     
     // MARK: - override
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToViewController" {
             if let notesImage = imageView.image {
                 let newHiddenMemo = HiddenMemo(title: self.titleForRegister, keyImage: self.keyImageForRegister, content: Content.NotesImage(notesImage))
@@ -45,12 +45,10 @@ class AddHiddenImageMemoViewController: UIViewController {
 extension AddHiddenImageMemoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! NSString
-        
-        if mediaType.isEqual(to: kUTTypeImage as String) {
-            if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-                self.imageView.image = image
-            }
+        if let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? NSString,
+            mediaType.isEqual(to: kUTTypeImage as String),
+            let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.imageView.image = image
         }
         
         self.dismiss(animated: true, completion: nil)
