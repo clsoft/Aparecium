@@ -21,13 +21,7 @@ enum Content {
 
 struct HiddenMemo: Codable {
     
-    // MARK: - internal
-    
-    let id: String
-    let title: String
-    let keyImage: UIImage?
-    
-    var content: Content?
+    // MARK: - init
     
     init(title: String, keyImage: UIImage, content: Content) {
         self.id = String(Int(Date.timeIntervalSinceReferenceDate))
@@ -57,6 +51,14 @@ struct HiddenMemo: Codable {
             self.content = Content.Video(videoURL)
         }
     }
+    
+    // MARK: - internal
+    
+    let id: String
+    let title: String
+    let keyImage: UIImage?
+    
+    var content: Content?
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
