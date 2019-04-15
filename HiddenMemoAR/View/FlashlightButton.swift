@@ -22,8 +22,9 @@ class FlashlightButton: UIButton {
     
     override var isHidden: Bool {
         didSet {
-            guard let captureDevice = AVCaptureDevice.default(for: .video), captureDevice.hasTorch else {
-                if !self.isHidden {
+            guard let captureDevice = AVCaptureDevice.default(for: .video),
+                captureDevice.hasTorch else {
+                if self.isHidden == false {
                     self.isHidden = true
                 }
                 
@@ -44,7 +45,8 @@ class FlashlightButton: UIButton {
             
             setImage(UIImage(named: imageName), for: .normal)
             
-            guard let captureDevice = AVCaptureDevice.default(for: .video), captureDevice.hasTorch else {
+            guard let captureDevice = AVCaptureDevice.default(for: .video),
+                captureDevice.hasTorch else {
                 if self.isToggled {
                     self.isToggled = false
                 }

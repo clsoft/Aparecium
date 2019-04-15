@@ -54,7 +54,8 @@ class ViewController: UIViewController {
         
         if let hitTestResult = hitTestResults.first?.node {
             DispatchQueue.main.async {
-                guard let id = hitTestResult.name, let hiddenMemo = HiddenMemoManager.shared.hiddenMemo(by: id) else {
+                guard let id = hitTestResult.name,
+                    let hiddenMemo = HiddenMemoManager.shared.hiddenMemo(by: id) else {
                     return
                 }
                 
@@ -73,7 +74,8 @@ class ViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction private func tabFlashlightButton(_ sender: Any) {
-        guard !self.flashlightButton.isHidden && self.flashlightButton.isEnabled else {
+        guard self.flashlightButton.isHidden == false,
+            self.flashlightButton.isEnabled else {
             return
         }
         

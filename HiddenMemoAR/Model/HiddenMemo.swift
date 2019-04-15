@@ -43,7 +43,8 @@ struct HiddenMemo: Codable {
             self.content = Content.Notes(notes)
         }
         
-        if let notesImageData = try? container.decode(Data.self, forKey: .notesImageData), let notesImage = UIImage(data: notesImageData) {
+        if let notesImageData = try? container.decode(Data.self, forKey: .notesImageData),
+            let notesImage = UIImage(data: notesImageData) {
             self.content = Content.NotesImage(notesImage)
         }
         
