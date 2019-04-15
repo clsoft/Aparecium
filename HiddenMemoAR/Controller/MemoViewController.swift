@@ -98,20 +98,3 @@ class MemoViewController: UIViewController {
     }
     
 }
-
-
-extension UIImage {
-    
-    fileprivate func alphaImage(_ alpha: CGFloat) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        
-        self.draw(at: CGPoint.zero, blendMode: .normal, alpha: alpha)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
-}

@@ -25,6 +25,7 @@
 		4FF5CCAB21AE429F007BC2DB /* AddHiddenVideoMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CCAA21AE429F007BC2DB /* AddHiddenVideoMemoViewController.swift */; };
 		4FF5CCAF21AFD25C007BC2DB /* HiddenMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CCAE21AFD25C007BC2DB /* HiddenMemo.swift */; };
 		4FF5CCB121B0353A007BC2DB /* RegisteredKeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CCB021B0353A007BC2DB /* RegisteredKeyCell.swift */; };
+		ACE86D572264EBF000F8EB03 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE86D562264EBF000F8EB03 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		4FF5CCAA21AE429F007BC2DB /* AddHiddenVideoMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHiddenVideoMemoViewController.swift; sourceTree = "<group>"; };
 		4FF5CCAE21AFD25C007BC2DB /* HiddenMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenMemo.swift; sourceTree = "<group>"; };
 		4FF5CCB021B0353A007BC2DB /* RegisteredKeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredKeyCell.swift; sourceTree = "<group>"; };
+		ACE86D562264EBF000F8EB03 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				AC3E6B33224BC67900BB5179 /* Model */,
 				4FF5CCA921AE193D007BC2DB /* View */,
 				4FF5CCA821AE1902007BC2DB /* Controller */,
+				ACE86D552264EB9300F8EB03 /* Extension */,
 				4FF5CCA721AE18C4007BC2DB /* Storyboard */,
 				4F4AB0A021A1FB00000CA395 /* Resource */,
 				4F4AB09621A1EE1A000CA395 /* Info.plist */,
@@ -149,6 +152,14 @@
 				4FF5CCA021AC91D7007BC2DB /* Manager */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ACE86D552264EB9300F8EB03 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ACE86D562264EBF000F8EB03 /* UIImage+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 				4FF5CCAB21AE429F007BC2DB /* AddHiddenVideoMemoViewController.swift in Sources */,
 				4FF5CCA621AE0B91007BC2DB /* FlashlightButton.swift in Sources */,
 				4FF5CC7621A71BBE007BC2DB /* HiddenMemoManager.swift in Sources */,
+				ACE86D572264EBF000F8EB03 /* UIImage+Extension.swift in Sources */,
 				4FF5CC9D21AABC59007BC2DB /* RegisteredKeyDetailsViewController.swift in Sources */,
 				4FF5CC9921A94C6B007BC2DB /* AddTabBarController.swift in Sources */,
 			);
