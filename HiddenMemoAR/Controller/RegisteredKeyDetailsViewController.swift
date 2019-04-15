@@ -49,7 +49,9 @@ class RegisteredKeyDetailsViewController: UIViewController {
     }()
     
     private func setup() {
-        guard let hiddenMemo = self.selectedHiddenMemo else { return }
+        guard let hiddenMemo = self.selectedHiddenMemo else {
+            return
+        }
         
         self.titleLabel.text = hiddenMemo.title
         

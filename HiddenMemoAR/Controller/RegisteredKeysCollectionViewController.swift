@@ -31,7 +31,9 @@ class RegisteredKeysCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisteredKeyCell", for: indexPath) as? RegisteredKeyCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisteredKeyCell", for: indexPath) as? RegisteredKeyCell else {
+            return UICollectionViewCell()
+        }
         
         let selectedHiddenMemo = self.hiddenMemos[indexPath.row]
         
@@ -175,9 +177,11 @@ extension RegisteredKeysCollectionViewController: RegisteredKeysCollectionViewCo
     }
     
     func didDelete(_ hiddenMemo: HiddenMemo?) {
-        guard let selectedMemo = hiddenMemo else { return }
+        guard let selectedHiddenMemo = hiddenMemo else {
+            return
+        }
         
-        HiddenMemoManager.shared.remove(by: selectedMemo.id)
+        HiddenMemoManager.shared.remove(by: selectedHiddenMemo.id)
         
         self.navigationController?.popViewController(animated: true)
         self.collectionView.reloadData()

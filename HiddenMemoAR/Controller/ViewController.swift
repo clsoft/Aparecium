@@ -45,7 +45,9 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
+        guard let touch = touches.first else {
+            return
+        }
         
         let location = touch.location(in: self.sceneView)
         let hitTestResults = self.sceneView.hitTest(location, options: nil)
@@ -71,14 +73,16 @@ class ViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction private func tabFlashlightButton(_ sender: Any) {
-        guard !self.flashlightButton.isHidden && self.flashlightButton.isEnabled else { return }
+        guard !self.flashlightButton.isHidden && self.flashlightButton.isEnabled else {
+            return
+        }
         
         self.flashlightButton.isToggled = !self.flashlightButton.isToggled
     }
     
     // MARK: - private
     
-    private let serialSceneKitQueue = DispatchQueue(label: Bundle.main.bundleIdentifier! + ".serialSceneKitQueue")
+    private let serialQueueForSceneKit = DispatchQueue(label: "kr.co.clsoft.HiddenMemoAR.serialQueueForSceneKit")
     
     private var session: ARSession {
         return self.sceneView.session
@@ -105,11 +109,13 @@ class ViewController: UIViewController {
 extension ViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let imageAnchor = anchor as? ARImageAnchor else { return }
+        guard let imageAnchor = anchor as? ARImageAnchor else {
+            return
+        }
         
         let referenceImage = imageAnchor.referenceImage
         
-        self.serialSceneKitQueue.async {
+        self.serialQueueForSceneKit.async {
             let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
             
             let material = SCNMaterial()
@@ -142,7 +148,9 @@ extension ViewController: ARSCNViewDelegate {
 extension ViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        guard error is ARError else { return }
+        guard error is ARError else {
+            return
+        }
         
         let errorWithInfo = error as NSError
         let messages = [
@@ -190,7 +198,9 @@ extension ViewController: ARSessionDelegate {
     }
     
     private func restartExperience() {
-        guard self.isRestartAvailable else { return }
+        guard self.isRestartAvailable else {
+            return
+        }
         
         self.isRestartAvailable = false
         

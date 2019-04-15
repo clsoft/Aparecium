@@ -80,7 +80,9 @@ struct HiddenMemo: Codable {
     }
     
     func arReferenceImage() -> ARReferenceImage? {
-        guard let cgKeyImage = self.keyImage?.cgImage else { return nil }
+        guard let cgKeyImage = self.keyImage?.cgImage else {
+            return nil
+        }
         
         let referenceImage = ARReferenceImage(cgKeyImage, orientation: .down, physicalWidth: CGFloat(1.0))
         referenceImage.name = self.id

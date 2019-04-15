@@ -31,7 +31,9 @@ class HiddenMemoManager {
     }
     
     func remove(by id: String) {
-        guard let index = self.index(by: id) else { return }
+        guard let index = self.index(by: id) else {
+            return
+        }
         
         self.hiddenMemos.remove(at: index)
             
@@ -39,13 +41,19 @@ class HiddenMemoManager {
     }
     
     func index(by id: String) -> Int? {
-        guard let value = Int(id) else { return nil }
+        guard let value = Int(id) else {
+            return nil
+        }
+        
         var first = 0
         var last = self.hiddenMemos.count
         
         while first <= last {
             let mid = (first + last) / 2
-            guard let midValue = Int(self.hiddenMemos[mid].id) else { return nil }
+            
+            guard let midValue = Int(self.hiddenMemos[mid].id) else {
+                return nil
+            }
             
             if midValue == value {
                 return mid
@@ -62,7 +70,9 @@ class HiddenMemoManager {
     }
     
     func hiddenMemo(by id: String) -> HiddenMemo? {
-        guard let index = self.index(by: id) else { return nil }
+        guard let index = self.index(by: id) else {
+            return nil
+        }
         
         return self.hiddenMemos[index]
     }
