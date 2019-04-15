@@ -9,16 +9,10 @@
 import UIKit
 import MobileCoreServices
 
+
 class AddHiddenImageMemoViewController: UIViewController {
     
-    @IBOutlet weak private var imageView: UIImageView!
-    
-    var titleForRegister: String!
-    var keyImageForRegister: UIImage!
-    
-    @IBAction func tabImageSelectButton(_ sender: Any) {
-        self.alertActionSheet()
-    }
+    // MARK: - override
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "segueToViewController" {
@@ -29,6 +23,21 @@ class AddHiddenImageMemoViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet private weak var imageView: UIImageView!
+    
+    // MARK: - IBAction
+    
+    @IBAction private func tabImageSelectButton(_ sender: Any) {
+        self.alertActionSheet()
+    }
+    
+    // MARK: - internal
+    
+    var titleForRegister: String!
+    var keyImageForRegister: UIImage!
     
 }
 

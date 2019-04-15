@@ -10,28 +10,13 @@ import UIKit
 import ARKit
 import SceneKit
 
+
 class ViewController: UIViewController {
     
-    @IBOutlet private var sceneView: ARSCNView!
-    @IBOutlet weak private var blurView: UIVisualEffectView!
-    @IBOutlet weak private var flashlightButton: FlashlightButton!
-    @IBOutlet weak private var registeredKeysButton: UIButton!
-
-    fileprivate var isRestartAvailable = true
+    // MARK: - override
     
-    private let serialSceneKitQueue = DispatchQueue(label: Bundle.main.bundleIdentifier! + ".serialSceneKitQueue")
-    private var session: ARSession {
-        return self.sceneView.session
-    }
-    
-    private lazy var memoViewController: MemoViewController = {
-        return children.lazy.compactMap { $0 as? MemoViewController }.first!
-    }()
-    
-    @IBAction func tabFlashlightButton(_ sender: Any) {
-        guard !self.flashlightButton.isHidden && self.flashlightButton.isEnabled else { return }
-        
-        self.flashlightButton.isToggled = !self.flashlightButton.isToggled
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     override func viewDidLoad() {
@@ -76,9 +61,34 @@ class ViewController: UIViewController {
         }
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    // MARK: - IBOutlet
+    
+    @IBOutlet private var sceneView: ARSCNView!
+    @IBOutlet private weak var blurView: UIVisualEffectView!
+    @IBOutlet private weak var flashlightButton: FlashlightButton!
+    @IBOutlet private weak var registeredKeysButton: UIButton!
+    
+    // MARK: - IBAction
+    
+    @IBAction private func tabFlashlightButton(_ sender: Any) {
+        guard !self.flashlightButton.isHidden && self.flashlightButton.isEnabled else { return }
+        
+        self.flashlightButton.isToggled = !self.flashlightButton.isToggled
     }
+    
+    // MARK: - private
+    
+    private let serialSceneKitQueue = DispatchQueue(label: Bundle.main.bundleIdentifier! + ".serialSceneKitQueue")
+    
+    private var session: ARSession {
+        return self.sceneView.session
+    }
+    
+    private var isRestartAvailable = true
+    
+    private lazy var memoViewController: MemoViewController = {
+        return children.lazy.compactMap { $0 as? MemoViewController }.first!
+    }()
     
     private func resetTracking() {
         let configuration = ARWorldTrackingConfiguration()

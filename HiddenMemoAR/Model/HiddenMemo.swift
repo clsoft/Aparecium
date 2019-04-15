@@ -9,6 +9,7 @@
 import UIKit
 import ARKit
 
+
 enum Content {
     
     case Notes(String)
@@ -19,6 +20,8 @@ enum Content {
 
 
 struct HiddenMemo: Codable {
+    
+    // MARK: - internal
     
     let id: String
     let title: String
@@ -83,6 +86,7 @@ struct HiddenMemo: Codable {
         return referenceImage
     }
     
+    // MARK: - private
     
     private enum CodingKeys: String, CodingKey {
         

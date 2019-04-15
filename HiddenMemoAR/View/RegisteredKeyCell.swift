@@ -8,18 +8,25 @@
 
 import UIKit
 
+
 class RegisteredKeyCell: UICollectionViewCell {
     
-    @IBOutlet weak var registeredKeyImageView: UIImageView!
-    @IBOutlet weak var memoTypeImageView: UIImageView!
+    // MARK: - init
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    // MARK: - override
+    
     override func prepareForReuse() {
         self.registeredKeyImageView.image = nil
         self.memoTypeImageView.image = nil
     }
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet weak var registeredKeyImageView: UIImageView!
+    @IBOutlet weak var memoTypeImageView: UIImageView!
     
 }

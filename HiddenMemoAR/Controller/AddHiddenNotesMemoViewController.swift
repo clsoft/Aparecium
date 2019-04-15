@@ -8,12 +8,10 @@
 
 import UIKit
 
+
 class AddHiddenNotesMemoViewController: UIViewController {
     
-    @IBOutlet weak private var notesTextView: UITextView!
-    
-    var titleForRegister: String!
-    var keyImageForRegister: UIImage!
+    // MARK: - override
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +30,17 @@ class AddHiddenNotesMemoViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet private weak var notesTextView: UITextView!
+    
+    // MARK: - internal
+    
+    var titleForRegister: String!
+    var keyImageForRegister: UIImage!
+    
+    // MARK: - private
     
     @objc private func tapToDismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)

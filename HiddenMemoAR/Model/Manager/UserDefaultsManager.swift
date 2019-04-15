@@ -8,13 +8,18 @@
 
 import Foundation
 
+
 class UserDefaultsManager {
+    
+    // MARK: - Singleton pattern
     
     static let shared = UserDefaultsManager()
     
     private init() {
         
     }
+    
+    // MARK: - internal
     
     func hiddenMemos() -> [HiddenMemo] {
         let userDefault = UserDefaults.standard

@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 
+
 protocol RegisteredKeysCollectionViewControllerDelegate: class {
     
     func didBack()
@@ -16,20 +17,10 @@ protocol RegisteredKeysCollectionViewControllerDelegate: class {
     
 }
 
+
 class RegisteredKeysCollectionViewController: UICollectionViewController {
     
-    weak var delegate: RegisteredKeysCollectionViewControllerDelegate?
-    
-    var keyImageForRegister: UIImage!
-    var hiddenMemos: [HiddenMemo]!
-    
-    @IBAction func tabCloseButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func tabAddButton(_ sender: Any) {
-        self.alertActionSheet()
-    }
+    // MARK: - override
     
     override func viewWillAppear(_ animated: Bool) {
         self.hiddenMemos = HiddenMemoManager.shared.hiddenMemos
@@ -78,6 +69,23 @@ class RegisteredKeysCollectionViewController: UICollectionViewController {
                 addTabBarController.keyImageForRegister = keyImageForRegister
             }
         }
+    }
+    
+    // MARK: - internal
+    
+    weak var delegate: RegisteredKeysCollectionViewControllerDelegate?
+    
+    var keyImageForRegister: UIImage!
+    var hiddenMemos: [HiddenMemo]!
+    
+    // MARK: - IBAction
+    
+    @IBAction func tabCloseButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tabAddButton(_ sender: Any) {
+        self.alertActionSheet()
     }
     
 }

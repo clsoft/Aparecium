@@ -9,7 +9,16 @@
 import UIKit
 import AVFoundation
 
+
 class FlashlightButton: UIButton {
+    
+    // MARK: - init
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    // MARK: - override
     
     override var isHidden: Bool {
         didSet {
@@ -26,6 +35,8 @@ class FlashlightButton: UIButton {
             }
         }
     }
+    
+    // MARK: - internal
     
     var isToggled: Bool = false {
         didSet {
@@ -55,10 +66,6 @@ class FlashlightButton: UIButton {
                 print(error)
             }
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
 }

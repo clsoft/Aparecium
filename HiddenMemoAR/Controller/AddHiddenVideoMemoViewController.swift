@@ -10,19 +10,10 @@ import UIKit
 import AVKit
 import MobileCoreServices
 
+
 class AddHiddenVideoMemoViewController: UIViewController {
     
-    var titleForRegister: String!
-    var keyImageForRegister: UIImage!
-    
-    private var videoURLForRegister: URL!
-    private lazy var playerViewController: AVPlayerViewController = {
-        return children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
-    }()
-    
-    @IBAction func tabVideoSelectButton(_ sender: Any) {
-        self.alertActionSheet()
-    }
+    // MARK: - override
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "segueToViewController" {
@@ -35,6 +26,24 @@ class AddHiddenVideoMemoViewController: UIViewController {
             HiddenMemoManager.shared.append(newHiddenMemo)
         }
     }
+    
+    // MARK: - IBAction
+    
+    @IBAction private func tabVideoSelectButton(_ sender: Any) {
+        self.alertActionSheet()
+    }
+    
+    // MARK: - internal
+    
+    var titleForRegister: String!
+    var keyImageForRegister: UIImage!
+    
+    // MARK: - private
+    
+    private var videoURLForRegister: URL!
+    private lazy var playerViewController: AVPlayerViewController = {
+        return children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
+    }()
     
 }
 

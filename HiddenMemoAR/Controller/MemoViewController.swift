@@ -11,26 +11,26 @@ import ARKit
 import AVKit
 import CoreGraphics
 
+
 class MemoViewController: UIViewController {
     
-    @IBOutlet weak private var titleLabel: UILabel!
-    @IBOutlet weak private var notesTextView: UITextView!
-    @IBOutlet weak private var imageView: UIImageView!
+    // MARK: - IBOutlet
     
-    private let displayDuration: TimeInterval = 60.0
-    private var hideTimer: Timer?
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var notesTextView: UITextView!
+    @IBOutlet private weak var imageView: UIImageView!
     
-    private lazy var playerViewController: AVPlayerViewController = {
-        return children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
-    }()
+    // MARK: - IBAction
     
-    @IBAction func tabCloseButton(_ sender: Any) {
+    @IBAction private func tabCloseButton(_ sender: Any) {
         if let player = self.playerViewController.player {
             player.pause()
         }
         
         self.setIsHidden(true, animated: true)
     }
+    
+    // MARK: - internal
     
     func show(_ hiddenMemo: HiddenMemo, isAutoHide: Bool = false) {
         self.hideTimer?.invalidate()
@@ -65,6 +65,15 @@ class MemoViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - private
+    
+    private let displayDuration: TimeInterval = 60.0
+    private var hideTimer: Timer?
+    
+    private lazy var playerViewController: AVPlayerViewController = {
+        return children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
+    }()
     
     private func setIsHidden(_ isHidden: Bool, animated: Bool) {
         view.isHidden = false

@@ -9,19 +9,24 @@
 import UIKit
 import AVKit
 
+
 class RegisteredKeyDetailsViewController: UIViewController {
+    
+    // MARK: - override
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.setup()
+    }
+    
+    // MARK: - IBOutlet
     
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var notesTextView: UITextView!
     @IBOutlet weak private var imageView: UIImageView!
     
-    weak var registeredKeysCollectionViewControllerDelegate: RegisteredKeysCollectionViewControllerDelegate?
-    
-    var selectedHiddenMemo: HiddenMemo?
-    
-    lazy private var playerViewController: AVPlayerViewController = {
-        return self.children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
-    }()
+    // MARK: - IBAction
     
     @IBAction private func tabBackButton(_ sender: Any) {
         self.registeredKeysCollectionViewControllerDelegate?.didBack()
@@ -31,11 +36,17 @@ class RegisteredKeyDetailsViewController: UIViewController {
         self.registeredKeysCollectionViewControllerDelegate?.didDelete(selectedHiddenMemo)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.setup()
-    }
+    // MARK: - internal
+    
+    weak var registeredKeysCollectionViewControllerDelegate: RegisteredKeysCollectionViewControllerDelegate?
+    
+    var selectedHiddenMemo: HiddenMemo?
+    
+    // MARK: - private
+    
+    private lazy var playerViewController: AVPlayerViewController = {
+        return self.children.lazy.compactMap { $0 as? AVPlayerViewController }.first!
+    }()
     
     private func setup() {
         guard let hiddenMemo = self.selectedHiddenMemo else { return }

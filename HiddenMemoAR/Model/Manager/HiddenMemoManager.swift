@@ -9,15 +9,20 @@
 import UIKit
 import ARKit
 
+
 class HiddenMemoManager {
     
-    static var shared = HiddenMemoManager()
+    // MARK: - Singleton pattern
     
-    var hiddenMemos: [HiddenMemo]
+    static var shared = HiddenMemoManager()
     
     private init() {
         self.hiddenMemos = UserDefaultsManager.shared.hiddenMemos()
     }
+    
+    // MARK: - internal
+    
+    var hiddenMemos: [HiddenMemo]
     
     func append(_ hiddenMemo: HiddenMemo) {
         self.hiddenMemos.append(hiddenMemo)
