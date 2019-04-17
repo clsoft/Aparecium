@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import MobileCoreServices
+import os.log
 
 
 class AddHiddenVideoMemoViewController: UIViewController {
@@ -70,7 +71,7 @@ extension AddHiddenVideoMemoViewController: UIImagePickerControllerDelegate, UIN
             do {
                 try videoData?.write(to: self.videoURLForRegister, options: [])
             } catch {
-                print(error)
+                os_log("%s", log: .default, type: .error, error.localizedDescription)
             }
             
             self.playerViewController.player = AVPlayer(url: videoURLForRegister)

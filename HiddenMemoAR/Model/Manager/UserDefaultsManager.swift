@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 
 class UserDefaultsManager {
@@ -29,9 +30,9 @@ class UserDefaultsManager {
         
         if let hiddenMemosData = userDefault.value(forKey: "SavedHiddenMemos") as? Data {
             do {
-                hiddenMemos = try decoder.decode([HiddenMemo].self, from: hiddenMemosData as Data)
+                hiddenMemos = try decoder.decode([HiddenMemo].self, from: hiddenMemosData)
             } catch {
-                print(error)
+                os_log("%s", log: .default, type: .error, error.localizedDescription)
             }
         }
         

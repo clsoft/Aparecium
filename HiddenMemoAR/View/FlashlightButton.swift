@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import os.log
 
 
 class FlashlightButton: UIButton {
@@ -65,7 +66,7 @@ class FlashlightButton: UIButton {
                 
                 captureDevice.unlockForConfiguration()
             } catch {
-                print(error)
+                os_log("%s", log: .default, type: .error, error.localizedDescription)
             }
         }
     }
