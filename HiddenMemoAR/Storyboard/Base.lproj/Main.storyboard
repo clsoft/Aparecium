@@ -62,17 +62,17 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" image="DoneButton" id="hkd-Sm-tfw"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="notesTextView" destination="Glg-cU-kPk" id="kV2-G3-ZJb"/>
+                        <outlet property="textView" destination="Glg-cU-kPk" id="5nn-EL-Byp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7C-1M-h7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3599" y="-669"/>
         </scene>
-        <!--Memo Details-->
+        <!--Memo Detail-->
         <scene sceneID="ttU-fj-NtL">
             <objects>
-                <viewController id="g5c-LH-YIa" customClass="RegisteredKeyDetailsViewController" customModule="HiddenMemoAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g5c-LH-YIa" customClass="RegisteredKeyDetailViewController" customModule="HiddenMemoAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t8d-xu-iuO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,15 +122,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y1f-OV-kvR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Memo Details" id="aM7-hd-f7d">
+                    <navigationItem key="navigationItem" title="Memo Detail" id="aM7-hd-f7d">
                         <barButtonItem key="leftBarButtonItem" title="Back" image="BackButton" id="him-eY-Bmp">
                             <connections>
-                                <action selector="tabBackButton:" destination="g5c-LH-YIa" id="sQa-3T-Wug"/>
+                                <action selector="backButtonDidTap:" destination="g5c-LH-YIa" id="z77-ZX-IVl"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Delete" image="DeleteButton" id="cfA-il-y9G">
                             <connections>
-                                <action selector="tabDeleteButton:" destination="g5c-LH-YIa" id="wSK-xk-8YI"/>
+                                <action selector="deleteButtonDidTap:" destination="g5c-LH-YIa" id="mP7-NG-bfS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -163,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="77" width="375" height="541"/>
                                 <color key="backgroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.029999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-Af-3ks" userLabel="Image Select Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-Af-3ks" userLabel="Select Button">
                                 <rect key="frame" x="295" y="538" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="WPI-FW-DxJ"/>
@@ -171,7 +171,7 @@
                                 </constraints>
                                 <state key="normal" image="SelectButton"/>
                                 <connections>
-                                    <action selector="tabImageSelectButton:" destination="NmQ-6z-WIb" eventType="touchUpInside" id="dtF-NF-Huf"/>
+                                    <action selector="selectButtonDidTap:" destination="NmQ-6z-WIb" eventType="touchUpInside" id="qpV-i9-YUs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -220,7 +220,7 @@
                                     <segue destination="SSp-jy-tde" kind="embed" id="9Ie-45-WXX"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SW-EY-7oU" userLabel="Video Select Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SW-EY-7oU" userLabel="Select Button">
                                 <rect key="frame" x="295" y="538" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="6eM-iw-0ad"/>
@@ -228,7 +228,7 @@
                                 </constraints>
                                 <state key="normal" image="SelectButton"/>
                                 <connections>
-                                    <action selector="tabVideoSelectButton:" destination="49W-Yj-BFb" eventType="touchUpInside" id="J2Z-T0-XFi"/>
+                                    <action selector="selectButtonDidTap:" destination="49W-Yj-BFb" eventType="touchUpInside" id="eJu-YI-DDc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -252,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="4490" y="-1433"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HiddenMemoAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HiddenMemoAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,7 +290,7 @@
                                 </constraints>
                                 <state key="normal" image="FlashlightOffButton"/>
                                 <connections>
-                                    <action selector="tabFlashlightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYa-rK-hyC"/>
+                                    <action selector="flashlightButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pJJ-zF-wuK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbS-Jg-k2N">
@@ -381,8 +381,8 @@
                                     <constraint firstItem="bTi-ue-V5r" firstAttribute="leading" secondItem="hnS-nj-rqt" secondAttribute="leading" constant="4" id="mMc-39-a8X"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="memoTypeImageView" destination="bTi-ue-V5r" id="kzG-QZ-ks6"/>
-                                    <outlet property="registeredKeyImageView" destination="ZvH-F4-6Vp" id="lgI-SF-YDV"/>
+                                    <outlet property="contentTypeImageView" destination="bTi-ue-V5r" id="b92-Kt-5RZ"/>
+                                    <outlet property="imageView" destination="ZvH-F4-6Vp" id="uqY-lP-I1m"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -394,18 +394,18 @@
                     <navigationItem key="navigationItem" title="Registered Keys" id="fsL-KM-BNh">
                         <barButtonItem key="leftBarButtonItem" title="Close" image="CloseButton" id="I3f-LX-wzG">
                             <connections>
-                                <action selector="tabCloseButton:" destination="gZk-kv-eK3" id="D2d-9S-Sbh"/>
+                                <action selector="closeButtonDidTap:" destination="gZk-kv-eK3" id="bWO-K2-19a"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" image="AddButton" id="Rg2-qX-Fpk">
                             <connections>
-                                <action selector="tabAddButton:" destination="gZk-kv-eK3" id="oVj-vW-Amv"/>
+                                <action selector="addButtonDidTap:" destination="gZk-kv-eK3" id="c7b-4a-GUS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="9ci-n0-T27" kind="show" identifier="segueToTabBarController" id="C7L-Rb-CGj"/>
-                        <segue destination="g5c-LH-YIa" kind="show" identifier="segueToRegisteredKeyDetailsViewController" id="Y02-TH-Jyw"/>
+                        <segue destination="g5c-LH-YIa" kind="show" identifier="segueToRegisteredKeyDetailViewController" id="Y02-TH-Jyw"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwq-z6-Pee" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -452,7 +452,7 @@
                                     <color key="titleColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.59999999999999998" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="tabCloseButton:" destination="gzz-6z-4Sp" eventType="touchUpInside" id="LVe-wx-vQs"/>
+                                    <action selector="closeButtonDidTap:" destination="gzz-6z-4Sp" eventType="touchUpInside" id="0V2-JE-ozt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -524,12 +524,12 @@
                     <navigationItem key="navigationItem" title="New Memo" id="8Cr-v7-JTF">
                         <barButtonItem key="leftBarButtonItem" title="Back" image="BackButton" id="hgc-Ha-hfm">
                             <connections>
-                                <action selector="tabBackButton:" destination="9ci-n0-T27" id="ZMQ-Uv-a9d"/>
+                                <action selector="backButtonDidTap:" destination="9ci-n0-T27" id="9bK-B1-A6O"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" image="DoneButton" id="RvG-mH-OBS">
                             <connections>
-                                <action selector="tabDoneButton:" destination="9ci-n0-T27" id="eFV-aL-1B8"/>
+                                <action selector="doneButtonDidTap:" destination="9ci-n0-T27" id="fdl-iz-3Bs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

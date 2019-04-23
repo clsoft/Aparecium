@@ -6,11 +6,11 @@
 //  Copyright © 2018 HyungJung Kim. All rights reserved.
 //
 
-import UIKit
 import ARKit
+import UIKit
 
 
-class HiddenMemoManager {
+final class HiddenMemoManager {
     
     // MARK: - Singleton pattern
     

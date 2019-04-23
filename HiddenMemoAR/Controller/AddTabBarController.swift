@@ -14,17 +14,17 @@ class AddTabBarController: UITabBarController {
     // MARK: - override
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addHiddenNotesMemoViewController = children[selectedIndex] as? AddHiddenNotesMemoViewController {
+        if let addHiddenNotesMemoViewController = self.children[selectedIndex] as? AddHiddenNotesMemoViewController {
             addHiddenNotesMemoViewController.titleForRegister = titleForRegister
             addHiddenNotesMemoViewController.keyImageForRegister = keyImageForRegister
             
             addHiddenNotesMemoViewController.prepare(for: segue, sender: sender)
-        } else if let addHiddenImageMemoViewController = children[selectedIndex] as? AddHiddenImageMemoViewController {
+        } else if let addHiddenImageMemoViewController = self.children[selectedIndex] as? AddHiddenImageMemoViewController {
             addHiddenImageMemoViewController.titleForRegister = titleForRegister
             addHiddenImageMemoViewController.keyImageForRegister = keyImageForRegister
             
             addHiddenImageMemoViewController.prepare(for: segue, sender: sender)
-        } else if let addHiddenVideoMemoViewController = children[selectedIndex] as? AddHiddenVideoMemoViewController {
+        } else if let addHiddenVideoMemoViewController = self.children[selectedIndex] as? AddHiddenVideoMemoViewController {
             addHiddenVideoMemoViewController.titleForRegister = titleForRegister
             addHiddenVideoMemoViewController.keyImageForRegister = keyImageForRegister
             
@@ -34,11 +34,11 @@ class AddTabBarController: UITabBarController {
     
     // MARK: - IBAction
     
-    @IBAction private func tabBackButton(_ sender: Any) {
+    @IBAction private func backButtonDidTap(_ sender: Any) {
         self.registeredKeysCollectionViewControllerDelegate?.didBack()
     }
     
-    @IBAction private func tabDoneButton(_ sender: Any) {
+    @IBAction private func doneButtonDidTap(_ sender: Any) {
         self.alertTextField()
     }
     
@@ -46,13 +46,20 @@ class AddTabBarController: UITabBarController {
     
     weak var registeredKeysCollectionViewControllerDelegate: RegisteredKeysCollectionViewControllerDelegate?
     
-    var titleForRegister: String!
-    var keyImageForRegister: UIImage!
+    var titleForRegister: String?
+    var keyImageForRegister: UIImage?
     
-    // MARK: - private
+}
+
+
+private extension AddTabBarController {
     
     private func alertTextField() {
-        let alertController = UIAlertController(title: "Title", message: nil, preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(
+            title: "Title",
+            message: nil,
+            preferredStyle: UIAlertController.Style.alert
+        )
         
         alertController.addTextField { textField in
             textField.placeholder = "Enter a title."
@@ -65,8 +72,9 @@ class AddTabBarController: UITabBarController {
             self.performSegue(withIdentifier: "segueToViewController", sender: nil)
         }
         
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
+        [cancelAction, okAction].forEach {
+            alertController.addAction($0)
+        }
         
         self.present(alertController, animated: true, completion: nil)
     }

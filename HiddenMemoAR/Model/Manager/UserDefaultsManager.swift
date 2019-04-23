@@ -10,7 +10,7 @@ import Foundation
 import os.log
 
 
-class UserDefaultsManager {
+final class UserDefaultsManager {
     
     // MARK: - Singleton pattern
     

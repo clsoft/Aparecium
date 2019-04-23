@@ -16,34 +16,46 @@ class AddHiddenNotesMemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapGestureForView = UITapGestureRecognizer(target: self, action: #selector(tapToDismissKeyboard))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.dismissKeyboard)
+        )
         
-        view.addGestureRecognizer(tapGestureForView)
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToViewController" {
-            if let notes = notesTextView.text {
-                let newHiddenMemo = HiddenMemo(title: self.titleForRegister, keyImage: self.keyImageForRegister, content: Content.Notes(notes))
-                
-                HiddenMemoManager.shared.append(newHiddenMemo)
-            }
+        if segue.identifier == "segueToViewController",
+            let notes = self.textView?.text,
+            let title = self.titleForRegister,
+            let keyImage = self.keyImageForRegister {
+            let newHiddenMemo = HiddenMemo(
+                title: title,
+                keyImage: keyImage,
+                content: Content.Notes(notes)
+            )
+            
+            HiddenMemoManager.shared.append(newHiddenMemo)
         }
+    
     }
     
     // MARK: - IBOutlet
     
-    @IBOutlet private weak var notesTextView: UITextView!
+    @IBOutlet private weak var textView: UITextView?
     
     // MARK: - internal
     
-    var titleForRegister: String!
-    var keyImageForRegister: UIImage!
+    var titleForRegister: String?
+    var keyImageForRegister: UIImage?
     
-    // MARK: - private
+}
+
+
+private extension AddHiddenNotesMemoViewController {
     
-    @objc private func tapToDismissKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
+    @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
 }

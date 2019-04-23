@@ -20,13 +20,23 @@ class RegisteredKeyCell: UICollectionViewCell {
     // MARK: - override
     
     override func prepareForReuse() {
-        self.registeredKeyImageView.image = nil
-        self.memoTypeImageView.image = nil
+        self.imageView?.image = nil
+        self.contentTypeImageView?.image = nil
     }
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var registeredKeyImageView: UIImageView!
-    @IBOutlet weak var memoTypeImageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView?
+    @IBOutlet private weak var contentTypeImageView: UIImageView?
+    
+    // MARK: - internal
+    
+    func setImage(_ image: UIImage?) {
+        self.imageView?.image = image
+    }
+    
+    func setContentTypeImage(_ image: UIImage?) {
+        self.contentTypeImageView?.image = image
+    }
     
 }

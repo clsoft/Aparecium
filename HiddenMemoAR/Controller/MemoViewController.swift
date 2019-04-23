@@ -6,23 +6,23 @@
 //  Copyright © 2018 HyungJung Kim. All rights reserved.
 //
 
-import UIKit
 import ARKit
 import AVKit
 import CoreGraphics
+import UIKit
 
 
 class MemoViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var notesTextView: UITextView!
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel?
+    @IBOutlet private weak var notesTextView: UITextView?
+    @IBOutlet private weak var imageView: UIImageView?
     
     // MARK: - IBAction
     
-    @IBAction private func tabCloseButton(_ sender: Any) {
+    @IBAction private func closeButtonDidTap(_ sender: Any) {
         if let player = self.playerViewController.player {
             player.pause()
         }
@@ -35,21 +35,20 @@ class MemoViewController: UIViewController {
     func show(_ hiddenMemo: HiddenMemo, isAutoHide: Bool = false) {
         self.hideTimer?.invalidate()
         
-        self.titleLabel.text = hiddenMemo.title
+        self.titleLabel?.text = hiddenMemo.title
         
         if let notes = hiddenMemo.content?.notes {
-            self.notesTextView.text = notes
-            self.imageView.image = nil
+            self.notesTextView?.text = notes
+            self.imageView?.image = nil
             self.playerViewController.view.isHidden = true
         } else if let notesImage = hiddenMemo.content?.notesImage {
-            self.notesTextView.text = ""
-            self.imageView.image = notesImage.alphaImage(0.9)
+            self.notesTextView?.text = ""
+            self.imageView?.image = notesImage.alphaImage(0.9)
             self.playerViewController.view.isHidden = true
         } else if let videoURL = hiddenMemo.content?.videoURL {
-            self.notesTextView.text = ""
-            self.imageView.image = nil
+            self.notesTextView?.text = ""
+            self.imageView?.image = nil
             self.playerViewController.view.isHidden = false
-            
             self.playerViewController.player = AVPlayer(url: videoURL)
             
             if let player = playerViewController.player {
@@ -60,7 +59,10 @@ class MemoViewController: UIViewController {
         self.setIsHidden(false, animated: true)
         
         if isAutoHide {
-            self.hideTimer = Timer.scheduledTimer(withTimeInterval: displayDuration, repeats: false) { [weak self] _ in
+            self.hideTimer = Timer.scheduledTimer(
+                withTimeInterval: displayDuration,
+                repeats: false
+            ) { [weak self] _ in
                 self?.setIsHidden(true, animated: true)
             }
         }
@@ -72,35 +74,46 @@ class MemoViewController: UIViewController {
     private var hideTimer: Timer?
     
     private lazy var playerViewController: AVPlayerViewController = {
-        let playerViewControllerChildren = children.lazy.compactMap { $0 as? AVPlayerViewController }
+        let playerViewControllers = self.children.lazy.compactMap { $0 as? AVPlayerViewController }
         
-        guard let playerViewController = playerViewControllerChildren.first else {
+        guard let playerViewController = playerViewControllers.first else {
             return AVPlayerViewController()
         }
         
         return playerViewController
     }()
     
+}
+
+
+private extension MemoViewController {
+    
     private func setIsHidden(_ isHidden: Bool, animated: Bool) {
-        view.isHidden = false
+        self.view.isHidden = false
         
         guard animated else {
             self.view.alpha = isHidden ? 0 : 1
-            self.titleLabel.alpha = isHidden ? 0 : 1
-            self.notesTextView.alpha = isHidden ? 0 : 1
-            self.imageView.alpha = isHidden ? 0 : 1
+            self.titleLabel?.alpha = isHidden ? 0 : 1
+            self.notesTextView?.alpha = isHidden ? 0 : 1
+            self.imageView?.alpha = isHidden ? 0 : 1
             self.playerViewController.view.alpha = isHidden ? 0 : 1
             
             return
         }
         
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState], animations: {
-            self.view.alpha = isHidden ? 0 : 1
-            self.titleLabel.alpha = isHidden ? 0 : 1
-            self.notesTextView.alpha = isHidden ? 0 : 1
-            self.imageView.alpha = isHidden ? 0 : 1
-            self.playerViewController.view.alpha = isHidden ? 0 : 1
-        }, completion: nil)
+        UIView.animate(
+            withDuration: 0.2,
+            delay: 0,
+            options: [.beginFromCurrentState],
+            animations: {
+                self.view.alpha = isHidden ? 0 : 1
+                self.titleLabel?.alpha = isHidden ? 0 : 1
+                self.notesTextView?.alpha = isHidden ? 0 : 1
+                self.imageView?.alpha = isHidden ? 0 : 1
+                self.playerViewController.view.alpha = isHidden ? 0 : 1
+        },
+            completion: nil
+        )
     }
     
 }

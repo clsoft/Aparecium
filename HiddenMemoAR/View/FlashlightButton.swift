@@ -6,8 +6,8 @@
 //  Copyright © 2018 HyungJung Kim. All rights reserved.
 //
 
-import UIKit
 import AVFoundation
+import UIKit
 import os.log
 
 
@@ -24,7 +24,8 @@ class FlashlightButton: UIButton {
     override var isHidden: Bool {
         didSet {
             guard let captureDevice = AVCaptureDevice.default(for: .video),
-                captureDevice.hasTorch else {
+                captureDevice.hasTorch
+            else {
                 if self.isHidden == false {
                     self.isHidden = true
                 }
@@ -44,10 +45,11 @@ class FlashlightButton: UIButton {
         didSet {
             let imageName = self.isToggled ? "FlashlightOnButton" : "FlashlightOffButton"
             
-            setImage(UIImage(named: imageName), for: .normal)
+            self.setImage(UIImage(named: imageName), for: .normal)
             
             guard let captureDevice = AVCaptureDevice.default(for: .video),
-                captureDevice.hasTorch else {
+                captureDevice.hasTorch
+            else {
                 if self.isToggled {
                     self.isToggled = false
                 }

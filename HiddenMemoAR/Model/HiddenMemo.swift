@@ -6,8 +6,8 @@
 //  Copyright © 2018 HyungJung Kim. All rights reserved.
 //
 
-import UIKit
 import ARKit
+import UIKit
 
 
 enum Content {
@@ -82,10 +82,15 @@ struct HiddenMemo: Codable {
     
     func arReferenceImage() -> ARReferenceImage? {
         guard let cgKeyImage = self.keyImage?.cgImage else {
-            return nil
+          return nil
         }
         
-        let referenceImage = ARReferenceImage(cgKeyImage, orientation: .down, physicalWidth: CGFloat(1.0))
+        let referenceImage = ARReferenceImage(
+          cgKeyImage,
+          orientation: .up,
+          physicalWidth: CGFloat(1)
+        )
+        
         referenceImage.name = self.id
             
         return referenceImage

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F4AB08B21A1EE18000CA395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4AB08A21A1EE18000CA395 /* AppDelegate.swift */; };
-		4F4AB08D21A1EE18000CA395 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4AB08C21A1EE18000CA395 /* ViewController.swift */; };
+		4F4AB08D21A1EE18000CA395 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4AB08C21A1EE18000CA395 /* MainViewController.swift */; };
 		4F4AB09021A1EE18000CA395 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4AB08E21A1EE18000CA395 /* Main.storyboard */; };
 		4F4AB09221A1EE1A000CA395 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4AB09121A1EE1A000CA395 /* Assets.xcassets */; };
 		4F4AB09521A1EE1A000CA395 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4AB09321A1EE1A000CA395 /* LaunchScreen.storyboard */; };
@@ -18,7 +18,7 @@
 		4FF5CC9321A8DE10007BC2DB /* AddHiddenImageMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CC9221A8DE10007BC2DB /* AddHiddenImageMemoViewController.swift */; };
 		4FF5CC9521A8E66A007BC2DB /* AddHiddenNotesMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CC9421A8E66A007BC2DB /* AddHiddenNotesMemoViewController.swift */; };
 		4FF5CC9921A94C6B007BC2DB /* AddTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CC9821A94C6B007BC2DB /* AddTabBarController.swift */; };
-		4FF5CC9D21AABC59007BC2DB /* RegisteredKeyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CC9C21AABC59007BC2DB /* RegisteredKeyDetailsViewController.swift */; };
+		4FF5CC9D21AABC59007BC2DB /* RegisteredKeyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CC9C21AABC59007BC2DB /* RegisteredKeyDetailViewController.swift */; };
 		4FF5CC9F21AB3CBA007BC2DB /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5CC9E21AB3CBA007BC2DB /* Circle.png */; };
 		4FF5CCA421ACB26C007BC2DB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CCA321ACB26C007BC2DB /* UserDefaultsManager.swift */; };
 		4FF5CCA621AE0B91007BC2DB /* FlashlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5CCA521AE0B91007BC2DB /* FlashlightButton.swift */; };
@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		4F4AB08721A1EE18000CA395 /* HiddenMemoAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenMemoAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4AB08A21A1EE18000CA395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F4AB08C21A1EE18000CA395 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4F4AB08C21A1EE18000CA395 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4F4AB08F21A1EE18000CA395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F4AB09121A1EE1A000CA395 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F4AB09421A1EE1A000CA395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		4FF5CC9221A8DE10007BC2DB /* AddHiddenImageMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHiddenImageMemoViewController.swift; sourceTree = "<group>"; };
 		4FF5CC9421A8E66A007BC2DB /* AddHiddenNotesMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHiddenNotesMemoViewController.swift; sourceTree = "<group>"; };
 		4FF5CC9821A94C6B007BC2DB /* AddTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTabBarController.swift; sourceTree = "<group>"; };
-		4FF5CC9C21AABC59007BC2DB /* RegisteredKeyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredKeyDetailsViewController.swift; sourceTree = "<group>"; };
+		4FF5CC9C21AABC59007BC2DB /* RegisteredKeyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredKeyDetailViewController.swift; sourceTree = "<group>"; };
 		4FF5CC9E21AB3CBA007BC2DB /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
 		4FF5CCA321ACB26C007BC2DB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		4FF5CCA521AE0B91007BC2DB /* FlashlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightButton.swift; sourceTree = "<group>"; };
@@ -124,10 +124,10 @@
 		4FF5CCA821AE1902007BC2DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4F4AB08C21A1EE18000CA395 /* ViewController.swift */,
+				4F4AB08C21A1EE18000CA395 /* MainViewController.swift */,
 				4F4AB0A421A203BD000CA395 /* MemoViewController.swift */,
 				4FF5CC7E21A8633D007BC2DB /* RegisteredKeysCollectionViewController.swift */,
-				4FF5CC9C21AABC59007BC2DB /* RegisteredKeyDetailsViewController.swift */,
+				4FF5CC9C21AABC59007BC2DB /* RegisteredKeyDetailViewController.swift */,
 				4FF5CC9821A94C6B007BC2DB /* AddTabBarController.swift */,
 				4FF5CC9421A8E66A007BC2DB /* AddHiddenNotesMemoViewController.swift */,
 				4FF5CC9221A8DE10007BC2DB /* AddHiddenImageMemoViewController.swift */,
@@ -237,7 +237,7 @@
 			files = (
 				4FF5CC7F21A8633D007BC2DB /* RegisteredKeysCollectionViewController.swift in Sources */,
 				4FF5CCB121B0353A007BC2DB /* RegisteredKeyCell.swift in Sources */,
-				4F4AB08D21A1EE18000CA395 /* ViewController.swift in Sources */,
+				4F4AB08D21A1EE18000CA395 /* MainViewController.swift in Sources */,
 				4FF5CCA421ACB26C007BC2DB /* UserDefaultsManager.swift in Sources */,
 				4FF5CC9521A8E66A007BC2DB /* AddHiddenNotesMemoViewController.swift in Sources */,
 				4FF5CC9321A8DE10007BC2DB /* AddHiddenImageMemoViewController.swift in Sources */,
@@ -248,7 +248,7 @@
 				4FF5CCA621AE0B91007BC2DB /* FlashlightButton.swift in Sources */,
 				4FF5CC7621A71BBE007BC2DB /* HiddenMemoManager.swift in Sources */,
 				ACE86D572264EBF000F8EB03 /* UIImage+Extension.swift in Sources */,
-				4FF5CC9D21AABC59007BC2DB /* RegisteredKeyDetailsViewController.swift in Sources */,
+				4FF5CC9D21AABC59007BC2DB /* RegisteredKeyDetailViewController.swift in Sources */,
 				4FF5CC9921A94C6B007BC2DB /* AddTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -382,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -400,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HAFTNA77L;
 				INFOPLIST_FILE = "$(SRCROOT)/HiddenMemoAR/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,7 +419,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HAFTNA77L;
 				INFOPLIST_FILE = "$(SRCROOT)/HiddenMemoAR/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
