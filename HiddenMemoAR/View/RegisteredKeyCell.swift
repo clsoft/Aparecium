@@ -26,17 +26,7 @@ class RegisteredKeyCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private weak var imageView: UIImageView?
-    @IBOutlet private weak var contentTypeImageView: UIImageView?
-    
-    // MARK: - internal
-    
-    func setImage(_ image: UIImage?) {
-        self.imageView?.image = image
-    }
-    
-    func setContentTypeImage(_ image: UIImage?) {
-        self.contentTypeImageView?.image = image
-    }
+    @IBOutlet weak var imageView: UIImageView?
+    @IBOutlet weak var contentTypeImageView: UIImageView?
     
 }

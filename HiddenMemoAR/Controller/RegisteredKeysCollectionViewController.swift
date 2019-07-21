@@ -43,14 +43,14 @@ class RegisteredKeysCollectionViewController: UICollectionViewController {
         
         let selectedHiddenMemo = HiddenMemoManager.shared.hiddenMemos[indexPath.row]
         
-        cell.setImage(selectedHiddenMemo.keyImage)
+        cell.imageView?.image = selectedHiddenMemo.keyImage
         
         if selectedHiddenMemo.content?.notes != nil {
-           cell.setContentTypeImage(UIImage(named: "NotesButton"))
+            cell.contentTypeImageView?.image = UIImage(named: "NotesButton")
         } else if selectedHiddenMemo.content?.notesImage != nil {
-            cell.setContentTypeImage(UIImage(named: "ImageButton"))
+            cell.contentTypeImageView?.image = UIImage(named: "ImageButton")
         } else if selectedHiddenMemo.content?.videoURL != nil {
-            cell.setContentTypeImage(UIImage(named: "VideoButton"))
+            cell.contentTypeImageView?.image = UIImage(named: "VideoButton")
         }
         
         return cell

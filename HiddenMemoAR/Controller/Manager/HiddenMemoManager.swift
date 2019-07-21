@@ -14,7 +14,7 @@ final class HiddenMemoManager {
     
     // MARK: - Singleton pattern
     
-    static var shared = HiddenMemoManager()
+    static let shared = HiddenMemoManager()
     
     private init() {
         self.hiddenMemos = UserDefaultsManager.shared.hiddenMemos()

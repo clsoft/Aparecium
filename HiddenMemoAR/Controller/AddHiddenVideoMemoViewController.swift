@@ -137,7 +137,6 @@ private extension AddHiddenVideoMemoViewController {
                 
                 imagePicker.delegate = self
                 imagePicker.sourceType = .photoLibrary
-                //I updated this version to Swift 5
                 imagePicker.mediaTypes = ["public.image", "public.movie"]
                 imagePicker.allowsEditing = true
                 

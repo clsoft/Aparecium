@@ -124,6 +124,7 @@
 		4FF5CCA821AE1902007BC2DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4FF5CCA021AC91D7007BC2DB /* Manager */,
 				4F4AB08C21A1EE18000CA395 /* MainViewController.swift */,
 				4F4AB0A421A203BD000CA395 /* MemoViewController.swift */,
 				4FF5CC7E21A8633D007BC2DB /* RegisteredKeysCollectionViewController.swift */,
@@ -149,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				4FF5CCAE21AFD25C007BC2DB /* HiddenMemo.swift */,
-				4FF5CCA021AC91D7007BC2DB /* Manager */,
 			);
 			path = Model;
 			sourceTree = "<group>";
